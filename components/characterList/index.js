@@ -27,10 +27,10 @@ export default class CharacterList extends React.Component {
 	}
 
 	Search = (e) => {
-		let serachValue = e.target.value;
-		console.log(serachValue);
+		let serachValue = e.target.value.toLowerCase();
 		let filteredList =  this.list.filter(( item, index) => {
-			if(item.name.indexOf(serachValue) > -1) return true;
+			let name = item.name.toLowerCase();
+			if(name.indexOf(serachValue) > -1) return true;
 		} );
 		this.setState({list: filteredList});
 	}
